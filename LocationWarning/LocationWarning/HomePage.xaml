@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:acr="clr-namespace:Acr.XamForms;assembly=Acr.XamForms"
+             x:Class="LocationWarning.HomePage"
+			 Title="Locations POC">
+
+	<TabbedPage.Children>
+		<NavigationPage Title="Info">
+			<x:Arguments>
+			    <ContentPage Title="Info" BindingContext="{Binding Info}">
+					<ContentPage.Content>
+				        <TableView Intent="Form">
+				            <TableRoot>
+				                <TableSection>
+				                    <TextCell Text="Hardware Permissions" Detail="{Binding HardwarePermissions}" />
+				                    <TextCell Text="Last Geocoder Attempt" Detail="{Binding LastGeocodeAttempt}" />
+				                    <TextCell Text="Last Geocoder Success" Detail="{Binding LastGeocodeSuccess}" />
+                                    <TextCell Text="Next Geocode Attempt" Detail="{Binding NextGeocodeAttempt}" />
+                                    <TextCell Text="Cache Validity Time" Detail="{Binding CacheValidityTime}" />
+				                </TableSection>
+
+				                <TableSection Title="Location">
+				                    <TextCell Text="Country" Detail="{Binding Country}" />
+				                    <TextCell Text="State" Detail="{Binding State}" />
+				                    <TextCell Text="City" Detail="{Binding City}" />
+									<TextCell Text="Time to Resolve" Detail="{Binding TimeToResolve, StringFormat='{0} ms'}" />
+				                </TableSection>
+
+				                <TableSection Title="GPS">
+				                    <TextCell Text="Latitude" Detail="{Binding Latitude}" />
+				                    <TextCell Text="Longitude" Detail="{Binding Longitude}" />
+				                    <TextCell Text="Heading" Detail="{Binding Heading}" />
+				                </TableSection>
+
+								<TableSection>
+									<TextCell Text="Send Database" Command="{Binding SendDatabase}" />
+                        			<TextCell Text="Try Resolve NOW!" Command="{Binding TryResolveNow}" />
+								</TableSection>
+				            </TableRoot>
+				        </TableView>
+					</ContentPage.Content>
+			    </ContentPage>
+			</x:Arguments>
+		</NavigationPage>
+
+
+		<NavigationPage Title="History">
+			<x:Arguments>
+				<ContentPage Title="History" BindingContext="{Binding History}">
+					<ContentPage.ToolbarItems>
+						<ToolbarItem Text="Clear" Command="{Binding Clear}" />
+					</ContentPage.ToolbarItems>
+
+					<ContentPage.Content>
+						<acr:ListView ItemsSource="{Binding List}" ItemClickCommand="{Binding Select}" IsRefreshing="{Binding IsLoading}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding Reload}" RowHeight="130">
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<ViewCell.View>
+											<StackLayout>
+												<Label Text="{Binding DateTime}" />
+												<Label Text="{Binding Location, StringFormat='Location: {0}'}" />
+												<Label Text="{Binding Latitude, StringFormat='Latitude: {0}'}" />
+												<Label Text="{Binding Longitude, StringFormat='Latitude: {0}'}" />
+												<Label Text="{Binding TimeTaken, StringFormat='Time Processing: {0}'}" />
+											</StackLayout>
+										</ViewCell.View>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</acr:ListView>
+					</ContentPage.Content>
+				</ContentPage>
+			</x:Arguments>
+		</NavigationPage>
+
+		<NavigationPage Title="Errors">
+			<x:Arguments>
+				<ContentPage Title="Errors" BindingContext="{Binding ErrorList}">
+					<ContentPage.ToolbarItems>
+						<ToolbarItem Text="Clear" Command="{Binding Clear}" />
+					</ContentPage.ToolbarItems>
+
+					<ContentPage.Content>
+						<ListView ItemsSource="{Binding List}" IsRefreshing="{Binding IsLoading}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding Reload}"  RowHeight="100">
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<ViewCell.View>
+											<StackLayout>
+												<Label Text="{Binding DateTime}" />
+												<Label Text="{Binding Latitude, StringFormat='Latitude: {0}'}" />
+												<Label Text="{Binding Longitude, StringFormat='Latitude: {0}'}" />
+											</StackLayout>
+										</ViewCell.View>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</ContentPage.Content>
+				</ContentPage>
+			</x:Arguments>
+		</NavigationPage>
+
+	</TabbedPage.Children>
+</TabbedPage>
