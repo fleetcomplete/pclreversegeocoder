@@ -69,10 +69,10 @@
     <EmbeddedResource Include="Resources\admin1CodesASCII.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\cities5000.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\cities1000.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
