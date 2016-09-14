@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardinalDirection.cs" />
     <Compile Include="Distance.cs" />
     <Compile Include="IGeocoderResult.cs" />
     <Compile Include="IGeocoder.cs" />

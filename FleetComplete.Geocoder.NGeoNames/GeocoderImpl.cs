@@ -38,15 +38,16 @@ namespace FleetComplete.Geocoder.NGeoNames
                 .Select(x =>
                 {
 
-                    var stateCode = this.GetState(x.Geo);
+                    var state = this.GetState(x.Geo);
                     var direction = this.CalculateDirection(center, x.CityCoord);
 
                     return new GeocoderResult
                     {
                         City = x.Geo.NameASCII,
                         CountryCode = x.Geo.CountryCode,
-                        StateCode = stateCode,
-                        Direction = direction,
+                        State = state,
+                        DirectionInDegrees = direction,
+                        Direction = GetDirection(direction),
                         ApproxDistanceTo = Distance.FromMeters(x.Distance)
                     };
                 });
@@ -62,6 +63,31 @@ namespace FleetComplete.Geocoder.NGeoNames
                 result = 360 - Math.Abs(result);
 
             return result;
+        }
+
+        //https://gist.github.com/adrianstevens/8163205
+        //public static string DegreesToCardinalDetailed(double degrees)
+        //        {
+        //    string[] caridnals = { "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "N" };
+        //    return caridnals[ (int)Math.Round(((double)degrees*10 % 3600) / 225) ];
+        //  }
+        static CardinalDirection GetDirection(double degrees)
+        {
+            var caridnals = new [] { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
+            var value = caridnals[(int)Math.Round((degrees % 360) / 45)];
+            switch (value)
+            {
+                case "NW": return CardinalDirection.NorthWest;
+                case "W" : return CardinalDirection.West;
+                case "SW": return CardinalDirection.SouthWest;
+                case "S" : return CardinalDirection.South;
+                case "SE": return CardinalDirection.SouthEast;
+                case "E" : return CardinalDirection.East;
+                case "NE": return CardinalDirection.NorthEast;
+                default  :
+                case "N" : return CardinalDirection.North;
+
+            }
         }
 
 

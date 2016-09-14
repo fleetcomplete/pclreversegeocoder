@@ -6,12 +6,14 @@ namespace FleetComplete.Geocoder
     public interface IGeocoderResult
     {
         string City { get; }
-        string StateCode { get; }
+        string State { get; }
         string CountryCode { get; }
+        CardinalDirection Direction { get; }
 
         // TODO: TimeZoneInfo TimeZone { get; }
         // TODO: classification of place (FeatureClass/Code from ngeonames)
-        double Direction { get; }
+        double DirectionInDegrees { get; }
         Distance ApproxDistanceTo { get; }
+
     }
 }

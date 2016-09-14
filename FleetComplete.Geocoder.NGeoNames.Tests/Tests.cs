@@ -26,7 +26,7 @@ namespace FleetComplete.Geocoder.NGeoNames.Tests
 
             result.Should().NotBeNull();
 
-            var loc = $"{result.City}, {result.StateCode}, {result.CountryCode}";
+            var loc = $"{result.City}, {result.State}, {result.CountryCode}";
             loc.Should().Be(expectedLocation);
 
             result.ApproxDistanceTo.TotalKilometers.Should().Be(expectedApproxDistance, "Distance is wrong");

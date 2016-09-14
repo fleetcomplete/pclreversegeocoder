@@ -143,7 +143,7 @@ namespace LocationWarning.Services.Locations.NGeoNames
                 {
                     Geo = loc,
                     Country = result.CountryCode,
-                    State = result.StateCode,
+                    State = result.State,
                     City = result.City,
                     TimeTakenInMilliseconds = sw.ElapsedMilliseconds
                 });
