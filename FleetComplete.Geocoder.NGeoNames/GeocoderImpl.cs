@@ -122,8 +122,7 @@ namespace FleetComplete.Geocoder.NGeoNames
                                 .ReadAdmin1Codes(stream)
                                 .ToList();
                         }
-                        //using (var stream = this.LoadStream("cities5000.txt"))
-                        using (var stream = this.LoadStream("cities1000.txt"))
+                        using (var stream = this.LoadStream("cities5000.txt"))
                         {
                             this.geodata = GeoFileReader
                                 .ReadExtendedGeoNames(stream)

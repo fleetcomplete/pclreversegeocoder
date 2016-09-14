@@ -54,6 +54,20 @@ AG.04	Saint John	Saint John	3576023
 AG.03	Saint George	Saint George	3576024
 AG.09	Redonda	Redonda	3576037
 AG.01	Barbuda	Barbuda	3576390
+AI.11205389	Blowing Point	Blowing Point	11205389
+AI.11205392	Sandy Ground	Sandy Ground	11205392
+AI.11205393	Sandy Hill	Sandy Hill	11205393
+AI.11205396	The Valley	The Valley	11205396
+AI.11205433	East End	East End	11205433
+AI.11205436	North Hill	North Hill	11205436
+AI.11205437	West End	West End	11205437
+AI.11205438	South Hill	South Hill	11205438
+AI.11205439	The Quarter	The Quarter	11205439
+AI.11205440	North Side	North Side	11205440
+AI.11205441	Island Harbour	Island Harbour	11205441
+AI.11205442	George Hill	George Hill	11205442
+AI.11205443	Stoney Ground	Stoney Ground	11205443
+AI.11205444	The Farrington	The Farrington	11205444
 AL.40	Berat	Berat	865730
 AL.41	Dibër	Diber	865731
 AL.43	Elbasan	Elbasan	865732
@@ -954,7 +968,7 @@ FR.27	Bourgogne-Franche-Comté	Bourgogne-Franche-Comte	11071619
 FR.75	Nouvelle-Aquitaine	Nouvelle-Aquitaine	11071620
 FR.28	Normandy	Normandy	11071621
 FR.44	Grand-Est	Grand-Est	11071622
-FR.76	Occitanie	Occitanie	11071623
+FR.76	Occitania	Occitania	11071623
 FR.32	Hauts-de-France	Hauts-de-France	11071624
 FR.84	Auvergne-Rhône-Alpes	Auvergne-Rhone-Alpes	11071625
 GA.09	Woleu-Ntem	Woleu-Ntem	2396076
@@ -1124,7 +1138,7 @@ HK.KYT	Yau Tsim Mong	Yau Tsim Mong	7533610
 HK.KSS	Sham Shui Po	Sham Shui Po	7533611
 HK.KKC	Kowloon City	Kowloon City	7533612
 HK.KWT	Wong Tai Sin	Wong Tai Sin	7533613
-HK.KKT	Kwon Tong	Kwon Tong	7533614
+HK.KKT	Kwun Tong	Kwun Tong	7533614
 HK.NKT	Kwai Tsing	Kwai Tsing	7533615
 HK.NTM	Tuen Mun	Tuen Mun	7533616
 HK.NNO	North	North	7533617
@@ -1393,13 +1407,13 @@ JE.3237716	St Martîn	St Martin	3237716
 JE.3237864	St Helier	St Helier	3237864
 JM.16	Westmoreland	Westmoreland	3488081
 JM.15	Trelawny	Trelawny	3488222
-JM.14	Saint Thomas	Saint Thomas	3488688
-JM.13	Saint Mary	Saint Mary	3488693
-JM.12	Saint James	Saint James	3488700
+JM.14	St. Thomas	St. Thomas	3488688
+JM.13	St. Mary	St. Mary	3488693
+JM.12	St. James	St. James	3488700
 JM.11	St. Elizabeth	St. Elizabeth	3488708
 JM.10	Saint Catherine	Saint Catherine	3488711
-JM.09	Saint Ann	Saint Ann	3488715
-JM.08	Saint Andrew	Saint Andrew	3488716
+JM.09	St Ann	St Ann	3488715
+JM.08	St. Andrew	St. Andrew	3488716
 JM.07	Portland	Portland	3488997
 JM.04	Manchester	Manchester	3489586
 JM.17	Kingston	Kingston	3489853
@@ -1515,7 +1529,7 @@ KG.08	Osh	Osh	1346798
 KG.09	Batken	Batken	1463580
 KG.06	Talas	Talas	1527297
 KG.04	Naryn	Naryn	1527590
-KG.07	Ysyk-Köl	Ysyk-Koel	1528260
+KG.07	Issyk-Kul Region	Issyk-Kul Region	1528260
 KG.01	Bishkek	Bishkek	1528334
 KG.03	Jalal-Abad	Jalal-Abad	1529778
 KG.02	Chüy	Chuy	1538652
@@ -1593,7 +1607,7 @@ KR.03	Jeollabuk-do	Jeollabuk-do	1845789
 KR.01	Jeju-do	Jeju-do	1846265
 KR.20	Gyeongsangnam-do	Gyeongsangnam-do	1902028
 KR.22	Sejong-si	Sejong-si	8394437
-KW.08	Muḩāfaz̧at Ḩawallī	Muhafazat Hawalli	285628
+KW.08	Hawalli	Hawalli	285628
 KW.02	Al Asimah	Al Asimah	285788
 KW.05	Al Jahrāʼ	Muhafazat al Jahra'	285798
 KW.07	Al Farwaniyah	Al Farwaniyah	285816
@@ -2417,6 +2431,7 @@ NP.MR	Mid Western	Mid Western	7289706
 NP.CR	Central Region	Central Region	7289707
 NP.ER	Eastern Region	Eastern Region	7289708
 NP.WR	Western Region	Western Region	7289709
+NP.00		Patheka	11205571
 NR.14	Yaren	Yaren	2110418
 NR.13	Uaboe	Uaboe	2110420
 NR.12	Nibok	Nibok	2110423
@@ -2768,7 +2783,7 @@ RU.69	Smolensk	Smolensk	491684
 RU.67	Saratov	Saratov	498671
 RU.65	Samara	Samara	499068
 RU.62	Rjazan	Rjazan	500059
-RU.61	Rostov	Rostov	501165
+RU.61	Rostov Oblast	Rostov Oblast	501165
 RU.60	Pskov	Pskov	504338
 RU.90	Perm	Perm	511180
 RU.57	Penza	Penza	511555
@@ -2783,7 +2798,7 @@ RU.47	Moscow Oblast	Moscow Oblast	524925
 RU.46	Mordoviya	Mordoviya	525369
 RU.45	Mariy-El	Mariy-El	529352
 RU.43	Lipetsk	Lipetsk	535120
-RU.42	Leningrad	Leningrad	536199
+RU.42	Leningradskaya Oblast'	Leningradskaya Oblast'	536199
 RU.66	St.-Petersburg	St.-Petersburg	536203
 RU.41	Kursk	Kursk	538555
 RU.38	Krasnodarskiy	Krasnodarskiy	542415
@@ -2903,7 +2918,7 @@ SD.50	Southern Kordofan	Southern Kordofan	408661
 SD.52	Kassala	Kassala	408663
 SD.53	River Nile	River Nile	408664
 SD.55	Northern Darfur	Northern Darfur	408666
-SD.56	Shamāl Kurdufān	Shamal Kurdufan	408667
+SD.56	North Kordofan	North Kordofan	408667
 SD.58	Sinnār	Sinnar	408669
 SD.60	Eastern Darfur	Eastern Darfur	8394435
 SD.61	Central Darfur	Central Darfur	8394436
