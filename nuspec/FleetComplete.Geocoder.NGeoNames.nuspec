@@ -17,7 +17,7 @@ This uses cross platform libraries underneath the hood, so be sure to install in
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin xam.pcl geocoder</tags>
         <dependencies>
-            <dependency id="FleetComplete.Geocoder" version="[1.0, 2)" />
+            <dependency id="FleetComplete.Geocoder" version="[1.0.2, 2)" />
             <dependency id="Acr.IO" version="[3, 4)" />
             <dependency id="GeoCoordinate" version="[1.1.0, 2)" />
         </dependencies>
