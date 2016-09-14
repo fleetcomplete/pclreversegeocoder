@@ -37,7 +37,6 @@ namespace FleetComplete.Geocoder.NGeoNames
                 .Take(take)
                 .Select(x =>
                 {
-
                     var state = this.GetState(x.Geo);
                     var direction = this.CalculateDirection(center, x.CityCoord);
 
@@ -46,6 +45,7 @@ namespace FleetComplete.Geocoder.NGeoNames
                         City = x.Geo.NameASCII,
                         CountryCode = x.Geo.CountryCode,
                         State = state,
+                        Coordinates = new GeoCoordinates(x.CityCoord.Latitude, x.CityCoord.Longitude),
                         DirectionInDegrees = direction,
                         Direction = GetDirection(direction),
                         ApproxDistanceTo = Distance.FromMeters(x.Distance)

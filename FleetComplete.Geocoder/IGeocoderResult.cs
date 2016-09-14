@@ -14,6 +14,6 @@ namespace FleetComplete.Geocoder
         // TODO: classification of place (FeatureClass/Code from ngeonames)
         double DirectionInDegrees { get; }
         Distance ApproxDistanceTo { get; }
-
+        GeoCoordinates Coordinates { get; }
     }
 }

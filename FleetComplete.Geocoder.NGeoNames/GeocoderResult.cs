@@ -11,5 +11,6 @@ namespace FleetComplete.Geocoder.NGeoNames
         public double DirectionInDegrees { get; set; }
         public CardinalDirection Direction { get; set; }
         public Distance ApproxDistanceTo { get; set; }
+        public GeoCoordinates Coordinates { get; set; }
     }
 }
