@@ -38,7 +38,7 @@ namespace FleetComplete.Geocoder.NGeoNames
                 .Select(x =>
                 {
                     var state = this.GetState(x.Geo);
-                    var direction = this.CalculateDirection(center, x.CityCoord);
+                    var direction = this.CalculateDirection(x.CityCoord, center);
 
                     return new GeocoderResult
                     {
@@ -46,9 +46,9 @@ namespace FleetComplete.Geocoder.NGeoNames
                         CountryCode = x.Geo.CountryCode,
                         State = state,
                         Coordinates = new GeoCoordinates(x.CityCoord.Latitude, x.CityCoord.Longitude),
-                        DirectionInDegrees = direction,
-                        Direction = GetDirection(direction),
-                        ApproxDistanceTo = Distance.FromMeters(x.Distance)
+                        DirectionInDegreesFrom = direction,
+                        DirectionFrom = GetDirection(direction),
+                        ApproxDistance = Distance.FromMeters(x.Distance)
                     };
                 });
         }

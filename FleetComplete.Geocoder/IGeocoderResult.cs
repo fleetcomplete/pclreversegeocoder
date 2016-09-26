@@ -8,12 +8,12 @@ namespace FleetComplete.Geocoder
         string City { get; }
         string State { get; }
         string CountryCode { get; }
-        CardinalDirection Direction { get; }
+        CardinalDirection DirectionFrom { get; }
 
         // TODO: TimeZoneInfo TimeZone { get; }
         // TODO: classification of place (FeatureClass/Code from ngeonames)
-        double DirectionInDegrees { get; }
-        Distance ApproxDistanceTo { get; }
+        double DirectionInDegreesFrom { get; }
+        Distance ApproxDistance { get; }
         GeoCoordinates Coordinates { get; }
     }
 }

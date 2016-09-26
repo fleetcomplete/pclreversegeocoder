@@ -1,0 +1,24 @@
+﻿{
+  "dependencies": {
+    "Acr.IO": "3.0.0",
+    "Acr.UserDialogs": "6.2.3",
+    "Autofac": "3.5.2",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "reactiveui": "6.5.2",
+    "SlideOverKit": "2.1.2.1",
+    "Xam.Plugin.Geolocator": "3.0.4",
+    "Xamarin.Forms": "2.3.2.127",
+    "Xamarin.Forms.GoogleMaps": "1.6.0"
+  },
+  "frameworks": {
+    "uap10.0": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="OgreTest.Pages.MainPage"
+             Title="OGRE Test">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Zoom" Command="{Binding Zoom}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="120" />
+            </Grid.RowDefinitions>
+
+            <googleMaps:Map
+                Grid.Row="0"
+                x:Name="MyMap"
+                MapType="Street"
+                HeightRequest="320"
+                WidthRequest="240"
+                HasZoomEnabled="true"
+                HasScrollEnabled="true"
+                MapClicked="OnMapClicked"
+            />
+
+            <TableView Intent="Settings" Grid.Row="1">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="Location" Detail="{Binding LocationName}" />
+                        <TextCell Text="Direction" Detail="{Binding Direction}" />
+                        <TextCell Text="Direction (degrees)" Detail="{Binding DirectionInDegrees}" />
+                        <TextCell Text="Distance (KM)" Detail="{Binding Distance}" />
+                        <TextCell Text="Coordinates" Detail="{Binding CurrentCoordinatesText}" />
+                        <TextCell Text="Resolved Coordinates" Detail="{Binding ResolvedCoordinatesText}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

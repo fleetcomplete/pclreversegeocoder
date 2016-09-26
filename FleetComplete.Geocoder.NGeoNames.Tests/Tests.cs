@@ -29,8 +29,8 @@ namespace FleetComplete.Geocoder.NGeoNames.Tests
             var loc = $"{result.City}, {result.State}, {result.CountryCode}";
             loc.Should().Be(expectedLocation);
 
-            result.ApproxDistanceTo.TotalKilometers.Should().Be(expectedApproxDistance, "Distance is wrong");
-            result.Direction.Should().Be(expectedDirection, "Direction is wrong");
+            result.ApproxDistance.TotalKilometers.Should().Be(expectedApproxDistance, "Distance is wrong");
+            result.DirectionFrom.Should().Be(expectedDirection, "Direction is wrong");
         }
     }
 }
