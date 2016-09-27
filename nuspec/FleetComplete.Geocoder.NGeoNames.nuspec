@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FleetComplete.Geocoder.NGeoNames</id>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
         <title>FleetComplete Offline Reverse Geocoder - NGeoNames</title>
         <description>
 PCL Library to get nearest City/State/Country from a set of coordinates (lat/long).  Driven by NGeoNames and GeoNames.org data.
@@ -17,11 +17,14 @@ This uses cross platform libraries underneath the hood, so be sure to install in
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin xam.pcl geocoder</tags>
         <dependencies>
-            <dependency id="FleetComplete.Geocoder" version="[1.0.2, 2)" />
+            <dependency id="FleetComplete.Geocoder" version="[1.0.3, 2)" />
             <dependency id="Acr.IO" version="[3, 4)" />
             <dependency id="GeoCoordinate" version="[1.1.0, 2)" />
         </dependencies>
         <releaseNotes>
+1.0.3
+[fix] directional calculations should be FROM point, not TO point
+
 1.0.0
 Initial release
         </releaseNotes>

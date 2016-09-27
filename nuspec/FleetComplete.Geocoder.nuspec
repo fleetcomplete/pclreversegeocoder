@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FleetComplete.Geocoder</id>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
         <title>FleetComplete Reverse Geocoder Interfaces</title>
         <description>
 PCL Library to get nearest City/State/Country from a set of coordinates (lat/long)
@@ -15,6 +15,9 @@ PCL Library to get nearest City/State/Country from a set of coordinates (lat/lon
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin xam.pcl geocoder</tags>
         <releaseNotes>
+1.0.3
+make property names more explicit as to their directional data
+
 1.0.0
 Initial release
         </releaseNotes>
