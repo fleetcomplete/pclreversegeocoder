@@ -14,7 +14,7 @@ namespace OgreTest.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
-            FormsGoogleMaps.Init("AIzaSyDZv4VUpwHSsnenr_o7kIOfVRsFhL-0neo");
+            FormsGoogleMaps.Init("");
             this.LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
