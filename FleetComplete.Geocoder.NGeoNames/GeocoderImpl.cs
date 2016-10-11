@@ -43,8 +43,10 @@ namespace FleetComplete.Geocoder.NGeoNames
                     return new GeocoderResult
                     {
                         City = x.Geo.NameASCII,
+                        Country = CodeMapping.Countries[x.Geo.CountryCode],
                         CountryCode = x.Geo.CountryCode,
                         State = state,
+                        StateCode = CodeMapping.StateProvinces[state],
                         Coordinates = new GeoCoordinates(x.CityCoord.Latitude, x.CityCoord.Longitude),
                         DirectionInDegreesFrom = direction,
                         DirectionFrom = GetDirection(direction),

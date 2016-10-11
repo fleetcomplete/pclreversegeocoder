@@ -7,6 +7,8 @@ namespace FleetComplete.Geocoder
     {
         string City { get; }
         string State { get; }
+        string StateCode { get; }
+        string Country { get; }
         string CountryCode { get; }
         CardinalDirection DirectionFrom { get; }
 

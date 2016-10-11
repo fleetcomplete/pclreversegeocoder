@@ -44,7 +44,8 @@ namespace OgreTest.ViewModels
                     var result = results.First();
 
                     this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
-                    this.LocationName = $"{result.City}, {result.State}, {result.CountryCode}";
+                    this.LocationName = $"{result.City}, {result.State}, {result.Country}";
+                    this.LocationNameAbbreviated = $"{result.City}, {result.StateCode}, {result.CountryCode}";
                     this.DirectionInDegrees = Math.Round(result.DirectionInDegreesFrom, 0);
                     this.Direction = result.DirectionFrom;
                     this.ResolvedCityCoordinates = new Coordinates(result.Coordinates.Latitude, result.Coordinates.Longitude);
@@ -92,6 +93,7 @@ namespace OgreTest.ViewModels
         [Reactive] public double DirectionInDegrees { get; private set; }
         [Reactive] public CardinalDirection Direction { get; private set; }
         [Reactive] public string LocationName { get; private set; }
+        [Reactive] public string LocationNameAbbreviated { get; private set; }
         [Reactive] public int Distance { get; private set; }
     }
 }

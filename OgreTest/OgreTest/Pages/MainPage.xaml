@@ -30,6 +30,7 @@
                 <TableRoot>
                     <TableSection>
                         <TextCell Text="Location" Detail="{Binding LocationName}" />
+                        <TextCell Text="Location (abbreviated)" Detail="{Binding LocationNameAbbreviated}" />
                         <TextCell Text="Direction" Detail="{Binding Direction}" />
                         <TextCell Text="Direction (degrees)" Detail="{Binding DirectionInDegrees}" />
                         <TextCell Text="Distance (KM)" Detail="{Binding Distance}" />

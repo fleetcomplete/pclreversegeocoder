@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FleetComplete.Geocoder.NGeoNames</id>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <title>FleetComplete Offline Reverse Geocoder - NGeoNames</title>
         <description>
 PCL Library to get nearest City/State/Country from a set of coordinates (lat/long).  Driven by NGeoNames and GeoNames.org data.
@@ -22,6 +22,9 @@ This uses cross platform libraries underneath the hood, so be sure to install in
             <dependency id="GeoCoordinate" version="[1.1.0, 2)" />
         </dependencies>
         <releaseNotes>
+1.0.4
+[feature] add state codes (Canada and US only)
+
 1.0.3
 [fix] directional calculations should be FROM point, not TO point
 
