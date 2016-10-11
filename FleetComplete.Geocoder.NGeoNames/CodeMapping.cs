@@ -1,19 +1,29 @@
 ﻿using System;
-using FleetComplete.Geocoder.NGeoNames.Internals;
+using System.Collections.Generic;
 
 
 namespace FleetComplete.Geocoder.NGeoNames
 {
     public static class CodeMapping
     {
-        internal static BiDictionary<string, string> Countries { get; } = new BiDictionary<string, string>
+        public static TValue SafeGet<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
+        {
+            var value = dictionary.ContainsKey(key)
+                ? dictionary[key]
+                : default(TValue);
+
+            return value;
+        }
+
+
+        internal static IDictionary<string, string> Countries { get; } = new Dictionary<string, string>
         {
             { "CA", "Canada" },
             { "US", "United States" }
         };
 
 
-        internal static BiDictionary<string, string> StateProvinces { get; } = new BiDictionary<string, string>
+        internal static IDictionary<string, string> StateProvinces { get; } = new Dictionary<string, string>
         {
             // United States
             {"Alabama", "AL" },
@@ -77,18 +87,18 @@ namespace FleetComplete.Geocoder.NGeoNames
             {"Wyoming", "WY" },
 
             // Canada
-            { "AB", "Alberta" },
-            { "BC", "British Columbia" },
-            { "MB", "Manitoba" },
-            { "NB", "New Brunswick" },
-            { "NF", "Newfoundland" },
-            { "NS", "Nova Scotia" },
-            { "NT", "North West Territories" },
-            { "ON", "Ontario" },
-            { "PE", "Prince Edward Island" },
-            { "QC", "Quebec" },
-            { "SK", "Saskatchewan" },
-            { "YT", "Yukon Territory" }
+            { "Alberta", "AB" },
+            { "British Columbia", "BC" },
+            { "Manitoba", "MB" },
+            { "New Brunswick", "NB" },
+            { "Newfoundland", "NF" },
+            { "Nova Scotia", "NS" },
+            { "North West Territories", "NT" },
+            { "Ontario", "ON" },
+            { "Prince Edward Island", "PE" },
+            { "Quebec", "QC" },
+            { "Saskatchewan", "SK" },
+            { "Yukon Territory", "YT" }
         };
     }
 }

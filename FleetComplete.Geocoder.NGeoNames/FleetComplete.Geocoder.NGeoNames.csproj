@@ -44,7 +44,6 @@
     <Compile Include="CodeMapping.cs" />
     <Compile Include="GeocoderImpl.cs" />
     <Compile Include="GeocoderResult.cs" />
-    <Compile Include="Internals\BiDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
