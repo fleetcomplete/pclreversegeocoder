@@ -208,7 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OgreTest\OgreTest.csproj">
-      <Project>{80E507A8-0B16-4494-B39C-483E3E674BBC}</Project>
+      <Project>{80e507a8-0b16-4494-b39c-483e3e674bbc}</Project>
       <Name>OgreTest</Name>
     </ProjectReference>
   </ItemGroup>
