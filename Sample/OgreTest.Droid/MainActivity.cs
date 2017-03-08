@@ -11,7 +11,6 @@ using Xamarin.Forms.Platform.Android;
 namespace OgreTest.Droid
 {
     [Activity(
-        Label = "OgreTest",
         Icon = "@drawable/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
