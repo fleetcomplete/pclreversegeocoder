@@ -69,12 +69,6 @@
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acr.IO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.IO.3.0.1\lib\MonoAndroid10\Acr.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Acr.IO.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.IO.3.0.1\lib\MonoAndroid10\Acr.IO.Interface.dll</HintPath>
-    </Reference>
     <Reference Include="Acr.Support.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Acr.Support.2.1.0\lib\MonoAndroid10\Acr.Support.Android.dll</HintPath>
       <Private>True</Private>

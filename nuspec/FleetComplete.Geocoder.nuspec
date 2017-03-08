@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FleetComplete.Geocoder</id>
-        <version>1.0.4</version>
+        <version>2.0.0</version>
         <title>FleetComplete Reverse Geocoder Interfaces</title>
         <description>
 PCL Library to get nearest City/State/Country from a set of coordinates (lat/long)
@@ -13,19 +13,23 @@ PCL Library to get nearest City/State/Country from a set of coordinates (lat/lon
         <projectUrl>https://github.com/fleetcomplete/pclreversegeocoder</projectUrl>
         <iconUrl>http://nuget.fleetcomplete.com/images/FCLogo_48x48.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <tags>xamarin xam.pcl geocoder</tags>
+        <tags>xamarin xam.pcl geocoder location</tags>
         <releaseNotes>
+2.0.0
+Some small API changes
+
 1.0.4
-add state codes (Canada and US only)
+Add state codes (Canada and US only)
 
 1.0.3
-make property names more explicit as to their directional data
+Make property names more explicit as to their directional data
 
 1.0.0
 Initial release
         </releaseNotes>
     </metadata>
     <files>
-        <file src="..\FleetComplete.Geocoder\bin\Release\FleetComplete.Geocoder.*" target="lib\portable-win+net45+wp8+win8+wpa81" />
+        <file src="..\FleetComplete.Geocoder\bin\Release\FleetComplete.Geocoder.*" 
+              target="lib\portable-win+net45+wp8+win8+wpa81" />
     </files>
 </package>
