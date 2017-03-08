@@ -17,7 +17,7 @@ namespace FleetComplete.Geocoder.NGeoNames
         IList<Admin1Code> adminCodes;
 
 
-        public async Task<IEnumerable<IGeocoderResult>> FindClosestCities(double latitude, double longitude, int take)
+        public async Task<IEnumerable<IGeocoderResult>> FindClosestCitiesAsync(double latitude, double longitude, int take)
         {
             await Task.Run(() => this.EnsureLoaded());
             var center = new GeoCoordinate(latitude, longitude);

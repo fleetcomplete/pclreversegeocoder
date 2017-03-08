@@ -7,6 +7,6 @@ namespace FleetComplete.Geocoder
 {
     public interface IGeocoder
     {
-        Task<IEnumerable<IGeocoderResult>> FindClosestCities(double latitude, double longitude, int take = 5);
+        Task<IEnumerable<IGeocoderResult>> FindClosestCitiesAsync(double latitude, double longitude, int take = 5);
     }
 }

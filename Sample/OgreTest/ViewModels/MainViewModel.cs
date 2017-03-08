@@ -40,7 +40,7 @@ namespace OgreTest.ViewModels
                 .Skip(1)
                 .Subscribe(async x =>
                 {
-                    var results = await geocoder.FindClosestCities(x.Latitude, x.Longitude, 1);
+                    var results = await geocoder.FindClosestCitiesAsync(x.Latitude, x.Longitude, 1);
                     var result = results.First();
 
                     this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
