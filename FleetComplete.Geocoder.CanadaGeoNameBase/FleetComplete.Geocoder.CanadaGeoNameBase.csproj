@@ -36,17 +36,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CanadaGeoNameBaseGeocoder.cs" />
+    <Compile Include="CodeMapping.cs" />
+    <Compile Include="GeocoderResult.cs" />
     <Compile Include="GeoNameEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\cgn_canada_csv_eng.csv" />
+    <None Include="packages.config" />
+    <None Include="Resources\cgn_canada_csv_eng.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FleetComplete.Geocoder\FleetComplete.Geocoder.csproj">
       <Project>{35460a49-4083-49ae-a5d3-0f9f95910173}</Project>
       <Name>FleetComplete.Geocoder</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cgn_canada_csv_eng_light.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GeoCoordinatePortable, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoCoordinate.1.1.0\lib\portable-net45+wp80+win+wpa81\GeoCoordinatePortable.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

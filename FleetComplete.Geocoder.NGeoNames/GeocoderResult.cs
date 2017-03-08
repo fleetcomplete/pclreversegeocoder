@@ -6,7 +6,7 @@ namespace FleetComplete.Geocoder.NGeoNames
     public class GeocoderResult : IGeocoderResult
     {
         public string City { get; set; }
-        public string StateCode { get; set; }
+        public string StateProvinceCode { get; set; }
         public string StateProvince { get; set; }
         public string Country { get; set; }
         public string CountryCode { get; set; }

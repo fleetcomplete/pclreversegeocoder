@@ -42,5 +42,18 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
 
             return result;
         }
+
+        public static GeoNameEntry FromCsvLight(string csvLine)
+        {
+            string[] values = csvLine.SplitCsv();
+            var result = new GeoNameEntry();
+
+            result.GeographicalName = values[0];
+            result.Latitude = Convert.ToDouble(values[1]);
+            result.Longitude = Convert.ToDouble(values[2]);
+            result.ProvinceTerritory = values[3];
+
+            return result;
+        }
     }
 }
