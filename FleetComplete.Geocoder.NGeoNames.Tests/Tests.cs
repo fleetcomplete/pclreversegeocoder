@@ -21,7 +21,7 @@ namespace FleetComplete.Geocoder.NGeoNames.Tests
         [TestCase(49.2611191, -84.8983383, "Hornepayne, Ontario, CA", 110.8826281341826, 10.281652816270453)]
         public async Task Run(double lat, double lng, string expectedLocation, double expectedDirection, double expectedApproxDistance)
         {
-            var results = await new GeocoderImpl().FindClosestCities(lat, lng, 1);
+            var results = await new NGeoNamesGeocoder().FindClosestCities(lat, lng, 1);
             var result = results.FirstOrDefault();
 
             result.Should().NotBeNull();

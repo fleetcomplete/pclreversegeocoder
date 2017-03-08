@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeMapping.cs" />
-    <Compile Include="GeocoderImpl.cs" />
+    <Compile Include="NGeoNamesGeocoder.cs" />
     <Compile Include="GeocoderResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
