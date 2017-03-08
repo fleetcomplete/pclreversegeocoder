@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.cmd = build.cmd
 		nuspec\FleetComplete.Geocoder.NGeoNames.nuspec = nuspec\FleetComplete.Geocoder.NGeoNames.nuspec
 		nuspec\FleetComplete.Geocoder.nuspec = nuspec\FleetComplete.Geocoder.nuspec
+		nuspec\FleetComplete.Geocoder.CanadaGeoNameBase.nuspec = nuspec\FleetComplete.Geocoder.CanadaGeoNameBase.nuspec
 		lib\KdTreeLib.Pcl.dll = lib\KdTreeLib.Pcl.dll
 		LICENSE.md = LICENSE.md
 		lib\NGeoNames.dll = lib\NGeoNames.dll
