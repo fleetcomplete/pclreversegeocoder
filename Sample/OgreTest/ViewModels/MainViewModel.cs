@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
 using FleetComplete.Geocoder;
@@ -40,8 +41,14 @@ namespace OgreTest.ViewModels
                 .Skip(1)
                 .Subscribe(async x =>
                 {
-                    var results = await geocoder.FindClosestCitiesAsync(x.Latitude, x.Longitude, 1);
-                    var result = results.First();
+                    RemoveValues();
+
+                    IGeocoderResult result = null;
+                    await Task.Run(async () =>
+                    {
+                        var results = await geocoder.FindClosestCitiesAsync(x.Latitude, x.Longitude, 1);
+                        result = results.First();
+                    });
 
                     this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
                     this.LocationName = $"{result.City}, {result.StateProvince}, {result.Country}";
@@ -60,7 +67,17 @@ namespace OgreTest.ViewModels
                 });
         }
 
-
+        private void RemoveValues()
+        {
+            this.Distance = 0;
+            this.LocationName = "";
+            this.LocationNameAbbreviated = "";
+            this.DirectionInDegrees = 0;
+            this.Direction = CardinalDirection.North;
+            this.ResolvedCityCoordinates = null;
+            this.CurrentCoordinatesText = "";
+            this.ResolvedCoordinatesText = "";
+        }
 
         public IObservable<object> WhenZoomRequested() => this.zoomRequest;
 
