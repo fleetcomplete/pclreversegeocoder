@@ -37,7 +37,7 @@ namespace FleetComplete.Geocoder.NGeoNames
                 .Take(take)
                 .Select(x =>
                 {
-                    var state = this.GetState(x.Geo);
+                    var stateProvince = this.GetStateProvince(x.Geo);
                     var direction = this.CalculateDirection(x.CityCoord, center);
 
                     return new GeocoderResult
@@ -45,8 +45,8 @@ namespace FleetComplete.Geocoder.NGeoNames
                         City = x.Geo.NameASCII,
                         Country = CodeMapping.Countries.SafeGet(x.Geo.CountryCode),
                         CountryCode = x.Geo.CountryCode,
-                        State = state,
-                        StateCode = CodeMapping.StateProvinces.SafeGet(state),
+                        StateProvince = stateProvince,
+                        StateCode = CodeMapping.StateProvinces.SafeGet(stateProvince),
                         Coordinates = new GeoCoordinates(x.CityCoord.Latitude, x.CityCoord.Longitude),
                         DirectionInDegreesFrom = direction,
                         DirectionFrom = GetDirection(direction),
@@ -93,7 +93,7 @@ namespace FleetComplete.Geocoder.NGeoNames
         }
 
 
-        string GetState(ExtendedGeoName result)
+        string GetStateProvince(ExtendedGeoName result)
         {
             var state = String.Empty;
             var admin = result.Admincodes.FirstOrDefault();
@@ -129,11 +129,8 @@ namespace FleetComplete.Geocoder.NGeoNames
                             this.geodata = GeoFileReader
                                 .ReadExtendedGeoNames(stream)
                                 .Where(x =>
-                                    //x.FeatureCode.Equals("PPL", StringComparison.OrdinalIgnoreCase) &&
-                                    //(
                                         x.CountryCode.Equals("CA", StringComparison.CurrentCultureIgnoreCase) ||
                                         x.CountryCode.Equals("US", StringComparison.CurrentCultureIgnoreCase)
-                                    //)
                                 )
                                 .OrderBy(x => x.Latitude)
                                 .ThenBy(x => x.Longitude)

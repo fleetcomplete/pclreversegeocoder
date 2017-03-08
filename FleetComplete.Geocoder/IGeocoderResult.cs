@@ -6,7 +6,7 @@ namespace FleetComplete.Geocoder
     public interface IGeocoderResult
     {
         string City { get; }
-        string State { get; }
+        string StateProvince { get; }
         string StateCode { get; }
         string Country { get; }
         string CountryCode { get; }
