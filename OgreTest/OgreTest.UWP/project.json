@@ -1,14 +1,14 @@
 ﻿{
   "dependencies": {
-    "Acr.IO": "3.0.0",
+    "Acr.IO": "3.0.1",
     "Acr.UserDialogs": "6.2.3",
     "Autofac": "3.5.2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "reactiveui": "6.5.2",
     "SlideOverKit": "2.1.2.1",
     "Xam.Plugin.Geolocator": "3.0.4",
-    "Xamarin.Forms": "2.3.2.127",
-    "Xamarin.Forms.GoogleMaps": "1.6.0"
+    "Xamarin.Forms": "2.3.3.193",
+    "Xamarin.Forms.GoogleMaps": "1.7.1"
   },
   "frameworks": {
     "uap10.0": {}
