@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FleetComplete.Geocoder.CanadaGeoNameBase
 {
     public class CanadaGeoNameBaseGeocoder : IGeocoder
     {
-        private List<GeoNameEntry> geodata;
+        private IList<GeoNameEntry> geodata;
 
         public async Task<IEnumerable<IGeocoderResult>> FindClosestCitiesAsync(double latitude, double longitude, int take = 5)
         {
@@ -37,6 +36,8 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
 
                             this.geodata = result.Skip(1)
                                 .Select(GeoNameEntry.FromCsv)
+                                .OrderBy(x => x.Latitude)
+                                .ThenBy(x => x.Longitude)
                                 .ToList();
                         }
                     }

@@ -146,6 +146,10 @@
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FleetComplete.Geocoder.CanadaGeoNameBase\FleetComplete.Geocoder.CanadaGeoNameBase.csproj">
+      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
+      <Name>FleetComplete.Geocoder.CanadaGeoNameBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FleetComplete.Geocoder.NGeoNames\FleetComplete.Geocoder.NGeoNames.csproj">
       <Project>{9c2b9b44-3503-4c62-a805-95abb009d716}</Project>
       <Name>FleetComplete.Geocoder.NGeoNames</Name>
