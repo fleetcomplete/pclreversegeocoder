@@ -1,23 +1,19 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System;
 
 namespace FleetComplete.Geocoder.CanadaGeoNameBase
 {
     public static class StringHelper
     {
-        public static string[] SplitCsv(this string input)
+        public static string RemoveFromEnd(this string s, string suffix)
         {
-            var matches = new Regex("((?<=\")[^\"]*(?=\"(,|$)+)|(?<=,|^)[^,\"]*(?=,|$))", RegexOptions.None)
-                .Matches(input);
-
-            var result = new string[matches.Count];
-
-            for (int i = 0; i < matches.Count; i++)
+            if (s.EndsWith(suffix))
             {
-                result[i] = matches[i].Value;
+                return s.Substring(0, s.Length - suffix.Length);
             }
-
-            return result;
+            else
+            {
+                return s;
+            }
         }
     }
 }

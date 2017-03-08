@@ -71,11 +71,15 @@ namespace OgreTest.Pages
                 .WhenZoomRequested()
                 .Subscribe(_ =>
                 {
-                    this.MyMap.MoveToRegion(MapSpan.FromPositions(new []
+                    if (this.viewModel.CurrentCoordinates != null &&
+                        this.viewModel.ResolvedCityCoordinates != null)
                     {
-                        this.viewModel.CurrentCoordinates.ToMapPosition(),
-                        this.viewModel.ResolvedCityCoordinates.ToMapPosition()
-                    }));
+                        this.MyMap.MoveToRegion(MapSpan.FromPositions(new[]
+                        {
+                            this.viewModel.CurrentCoordinates.ToMapPosition(),
+                            this.viewModel.ResolvedCityCoordinates.ToMapPosition()
+                        }));
+                    }
                 });
 
             this.viewModel.Start();

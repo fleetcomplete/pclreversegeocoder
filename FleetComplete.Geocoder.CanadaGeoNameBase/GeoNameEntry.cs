@@ -45,13 +45,13 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
 
         public static GeoNameEntry FromCsvLight(string csvLine)
         {
-            string[] values = csvLine.SplitCsv();
+            string[] values = csvLine.Split(',');
             var result = new GeoNameEntry();
 
             result.GeographicalName = values[0];
             result.Latitude = Convert.ToDouble(values[1]);
             result.Longitude = Convert.ToDouble(values[2]);
-            result.ProvinceTerritory = values[3];
+            result.ProvinceTerritory = values[3].RemoveFromEnd("\r");
 
             return result;
         }

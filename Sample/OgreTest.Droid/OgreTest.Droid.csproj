@@ -247,6 +247,14 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FleetComplete.Geocoder.CanadaGeoNameBase\FleetComplete.Geocoder.CanadaGeoNameBase.csproj">
+      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
+      <Name>FleetComplete.Geocoder.CanadaGeoNameBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FleetComplete.Geocoder\FleetComplete.Geocoder.csproj">
+      <Project>{35460a49-4083-49ae-a5d3-0f9f95910173}</Project>
+      <Name>FleetComplete.Geocoder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OgreTest\OgreTest.csproj">
       <Project>{80e507a8-0b16-4494-b39c-483e3e674bbc}</Project>
       <Name>OgreTest</Name>
