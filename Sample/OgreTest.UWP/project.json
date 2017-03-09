@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Acr.IO": "3.0.1",
     "Acr.UserDialogs": "6.2.3",
     "Autofac": "3.5.2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",

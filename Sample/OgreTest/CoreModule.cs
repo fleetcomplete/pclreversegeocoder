@@ -23,7 +23,7 @@ namespace OgreTest
                 .SingleInstance();
 
             builder
-                .RegisterType<FleetComplete.Geocoder.CanadaGeoNameBase.CanadaGeoNameBaseGeocoder>()
+                .RegisterType<FleetComplete.Geocoder.NGeoNames.NGeoNamesGeocoder>()
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
