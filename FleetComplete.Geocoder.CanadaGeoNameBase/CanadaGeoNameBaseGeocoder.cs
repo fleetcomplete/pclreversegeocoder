@@ -68,8 +68,8 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
                             this.geodata = result
                                 .Skip(1)
                                 .Select(GeoNameEntry.FromCsvLight)
-                                //.OrderBy(x => x.Latitude)
-                                //.ThenBy(x => x.Longitude)
+                                .OrderBy(x => x.Latitude)
+                                .ThenBy(x => x.Longitude)
                                 .ToList();
                         }
                     }
