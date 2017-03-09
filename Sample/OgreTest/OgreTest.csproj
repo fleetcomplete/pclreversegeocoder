@@ -40,10 +40,13 @@
     </Compile>
     <Compile Include="CoreModule.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Geocoders.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GeoDataSourceService.cs" />
+    <Compile Include="Services\IGeoDataSourceService.cs" />
     <Compile Include="ViewModels\Coordinates.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>

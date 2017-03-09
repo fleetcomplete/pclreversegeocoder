@@ -23,13 +23,8 @@ namespace OgreTest
                 .SingleInstance();
 
             builder
-                .RegisterType<FleetComplete.Geocoder.NGeoNames.NGeoNamesGeocoder>()
-                .AsImplementedInterfaces()
-                .SingleInstance();
-
-            builder
                 .RegisterAssemblyTypes(this.ThisAssembly)
-                .Where(x => x.Namespace.StartsWith("OgreTest.Tasks"))
+                .Where(x => x.Namespace.StartsWith("OgreTest.Services"))
                 .AsImplementedInterfaces()
                 .AutoActivate()
                 .SingleInstance();

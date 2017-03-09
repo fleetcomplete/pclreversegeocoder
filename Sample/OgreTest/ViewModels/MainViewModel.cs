@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
 using FleetComplete.Geocoder;
+using OgreTest.Services;
 using Plugin.Geolocator.Abstractions;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Forms;
 
 
 namespace OgreTest.ViewModels
@@ -18,15 +18,19 @@ namespace OgreTest.ViewModels
     {
         readonly IUserDialogs dialogs;
         readonly IGeolocator geolocator;
+        readonly IGeoDataSourceService geoDataSourceService;
         readonly Subject<object> zoomRequest;
         bool isStarted = false;
 
 
-        public MainViewModel(IUserDialogs dialogs, IGeolocator geolocator, IGeocoder geocoder)
+        public MainViewModel(IUserDialogs dialogs, IGeolocator geolocator, IGeoDataSourceService geoDataSourceService)
         {
             this.dialogs = dialogs;
             this.geolocator = geolocator;
+            this.geoDataSourceService = geoDataSourceService;
             this.zoomRequest = new Subject<object>();
+
+            geoDataSourceService.SetGeocoder(Geocoders.NGeoNames);
 
             this.Zoom = ReactiveCommand.CreateAsyncTask(
                 this.WhenAny(
@@ -37,34 +41,59 @@ namespace OgreTest.ViewModels
                 async _ => this.zoomRequest.OnNext(null)
             );
 
+            this.SelectGeoData = ReactiveCommand.CreateAsyncTask(
+                async _ =>
+                {
+                    var result = await this.dialogs.ActionSheetAsync("Select Data Source", 
+                        "Cancel", 
+                        null, 
+                        null,
+                        geoDataSourceService.GetGeocoders().Select(x => x.ToString()).ToArray());
+
+                    if (result != "Cancel")
+                    {
+                        var selectedGeocoder = (Geocoders) Enum.Parse(typeof(Geocoders), result);
+                        geoDataSourceService.SetGeocoder(selectedGeocoder);
+                    }
+                }
+            );
+
+            geoDataSourceService.WhenAnyValue(x => x.Geocoder)
+                .Subscribe(x =>
+                {
+                    this.CurrentGeocoder = geoDataSourceService.ActiveGeocoder;
+                    ResolveLocation(this.CurrentCoordinates);
+                });
+
             this.WhenAnyValue(x => x.CurrentCoordinates)
                 .Skip(1)
-                .Subscribe(async x =>
+                .Subscribe(x =>
                 {
-                    RemoveValues();
-
-                    IGeocoderResult result = null;
-                    await Task.Run(async () =>
-                    {
-                        var results = await geocoder.FindClosestCitiesAsync(x.Latitude, x.Longitude, 1);
-                        result = results.First();
-                    });
-
-                    this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
-                    this.LocationName = $"{result.City}, {result.StateProvince}, {result.Country}";
-                    this.LocationNameAbbreviated = $"{result.City}, {result.StateProvinceCode}, {result.CountryCode}";
-                    this.DirectionInDegrees = Math.Round(result.DirectionInDegreesFrom, 0);
-                    this.Direction = result.DirectionFrom;
-                    this.ResolvedCityCoordinates = new Coordinates(result.Coordinates.Latitude, result.Coordinates.Longitude);
-
-                    this.CurrentCoordinatesText = this.CurrentCoordinates.ToString();
-                    this.ResolvedCoordinatesText = this.ResolvedCityCoordinates.ToString();
-                    if (!this.isStarted)
-                    {
-                        this.isStarted = true;
-                        this.zoomRequest.OnNext(null);
-                    }
+                    ResolveLocation(x);
                 });
+        }
+
+        private async Task ResolveLocation(Coordinates coords)
+        {
+            RemoveValues();
+
+            var results = await geoDataSourceService.Geocoder.FindClosestCitiesAsync(coords.Latitude, coords.Longitude, 1);
+            var result = results.First();
+
+            this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
+            this.LocationName = $"{result.City}, {result.StateProvince}, {result.Country}";
+            this.LocationNameAbbreviated = $"{result.City}, {result.StateProvinceCode}, {result.CountryCode}";
+            this.DirectionInDegrees = Math.Round(result.DirectionInDegreesFrom, 0);
+            this.Direction = result.DirectionFrom;
+            this.ResolvedCityCoordinates = new Coordinates(result.Coordinates.Latitude, result.Coordinates.Longitude);
+
+            this.CurrentCoordinatesText = this.CurrentCoordinates.ToString();
+            this.ResolvedCoordinatesText = this.ResolvedCityCoordinates.ToString();
+            if (!this.isStarted)
+            {
+                this.isStarted = true;
+                this.zoomRequest.OnNext(null);
+            }
         }
 
         private void RemoveValues()
@@ -103,6 +132,9 @@ namespace OgreTest.ViewModels
 
 
         public ICommand Zoom { get; }
+        public ICommand SelectGeoData { get; }
+
+        [Reactive] public Geocoders CurrentGeocoder { get; private set; }
         [Reactive] public Coordinates CurrentCoordinates { get; set; }
         [Reactive] public Coordinates ResolvedCityCoordinates { get; private set; }
         [Reactive] public string CurrentCoordinatesText { get; private set; }

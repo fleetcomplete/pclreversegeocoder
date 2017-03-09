@@ -6,13 +6,14 @@
              Title="OGRE Test">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Zoom" Command="{Binding Zoom}" />
+        <ToolbarItem Text="Select Geo Data" Command="{Binding SelectGeoData}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="300" />
+                <RowDefinition Height="260" />
             </Grid.RowDefinitions>
 
             <googleMaps:Map
@@ -28,7 +29,7 @@
 
             <TableView Intent="Settings" Grid.Row="1">
                 <TableRoot>
-                    <TableSection>
+                    <TableSection Title="{Binding CurrentGeocoder}">
                         <TextCell Text="Location" Detail="{Binding LocationName}" />
                         <TextCell Text="Location (abbreviated)" Detail="{Binding LocationNameAbbreviated}" />
                         <TextCell Text="Direction" Detail="{Binding Direction}" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using OgreTest.ViewModels;
 using ReactiveUI;
@@ -46,9 +47,10 @@ namespace OgreTest.Pages
                 .Where(x => x != null)
                 .Subscribe(coords =>
                 {
+                    this.MyMap.Pins.Remove(this.MyMap.FirstOrDefault(x => x.Type == PinType.SearchResult));
+
                     // this would always come after current
-                    var current = new Position(this.viewModel.CurrentCoordinates.Latitude,
-                        this.viewModel.CurrentCoordinates.Longitude);
+                    var current = new Position(this.viewModel.CurrentCoordinates.Latitude, this.viewModel.CurrentCoordinates.Longitude);
                     var position = new Position(coords.Latitude, coords.Longitude);
 
                     this.MyMap.Pins.Add(new Pin
