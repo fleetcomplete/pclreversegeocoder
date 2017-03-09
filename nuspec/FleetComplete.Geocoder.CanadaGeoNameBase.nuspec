@@ -5,7 +5,7 @@
         <version>1.0.0</version>
         <title>FleetComplete Offline Reverse Geocoder - CanadaGeoNameBase</title>
         <description>
-PCL Library to get nearest City/State/Country from a set of coordinates (lat/long).  Driven by the Canadian Geographical Names Data Base.
+PCL Library to get nearest location information from a set of coordinates (lat/long).  Driven by the Canadian Geographical Names Data Base.
         </description>
         <authors>Fleet Complete</authors>
         <owners>Fleet Complete</owners>

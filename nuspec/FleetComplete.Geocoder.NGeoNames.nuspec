@@ -5,7 +5,7 @@
         <version>2.0.0</version>
         <title>FleetComplete Offline Reverse Geocoder - NGeoNames</title>
         <description>
-PCL Library to get nearest City/State/Country from a set of coordinates (lat/long).  Driven by NGeoNames and GeoNames.org data.
+PCL Library to get nearest location information from a set of coordinates (lat/long).  Driven by NGeoNames and GeoNames.org data.
 
 This uses cross platform libraries underneath the hood, so be sure to install in your main iOS/Android/Windows projects as well
         </description>

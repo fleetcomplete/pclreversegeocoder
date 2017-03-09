@@ -5,7 +5,7 @@
         <version>2.0.0</version>
         <title>FleetComplete Reverse Geocoder Interfaces</title>
         <description>
-PCL Library to get nearest City/State/Country from a set of coordinates (lat/long)
+PCL Library to get nearest location information from a set of coordinates (lat/long).
         </description>
         <authors>Fleet Complete</authors>
         <owners>Fleet Complete</owners>
