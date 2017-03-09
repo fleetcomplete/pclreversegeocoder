@@ -30,8 +30,10 @@ namespace OgreTest.Pages
                 .Where(x => x != null)
                 .Subscribe(coords =>
                 {
+                    this.MyMap.Pins.Remove(this.MyMap.FirstOrDefault(x => x.Type == PinType.Generic));
+
                     var current = new Position(coords.Latitude, coords.Longitude);
-                    this.MyMap.Pins.Clear();
+
                     this.MyMap.Pins.Add(new Pin
                     {
                         IsDraggable = false,
@@ -49,7 +51,6 @@ namespace OgreTest.Pages
                 {
                     this.MyMap.Pins.Remove(this.MyMap.FirstOrDefault(x => x.Type == PinType.SearchResult));
 
-                    // this would always come after current
                     var current = new Position(this.viewModel.CurrentCoordinates.Latitude, this.viewModel.CurrentCoordinates.Longitude);
                     var position = new Position(coords.Latitude, coords.Longitude);
 
