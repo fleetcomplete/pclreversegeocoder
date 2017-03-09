@@ -77,8 +77,13 @@ namespace OgreTest.ViewModels
         {
             RemoveValues();
 
-            var results = await geoDataSourceService.Geocoder.FindClosestCitiesAsync(coords.Latitude, coords.Longitude, 1);
-            var result = results.First();
+            IGeocoderResult result = null;
+
+            await Task.Run(async () =>
+            {
+                var results = await geoDataSourceService.Geocoder.FindClosestCitiesAsync(coords.Latitude, coords.Longitude, 1);
+                result = results.First();
+            });
 
             this.Distance = Convert.ToInt32(Math.Round(result.ApproxDistance.TotalKilometers, 0));
             this.LocationName = $"{result.City}, {result.StateProvince}, {result.Country}";
@@ -103,7 +108,6 @@ namespace OgreTest.ViewModels
             this.LocationNameAbbreviated = "";
             this.DirectionInDegrees = 0;
             this.Direction = CardinalDirection.North;
-            this.ResolvedCityCoordinates = null;
             this.CurrentCoordinatesText = "";
             this.ResolvedCoordinatesText = "";
         }
