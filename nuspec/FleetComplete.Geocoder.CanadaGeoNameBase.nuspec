@@ -24,7 +24,7 @@ Initial release
         </releaseNotes>
     </metadata>
     <files>
-        <file src="..\FleetComplete.Geocoder.CanadaGeoNameBase\bin\Release\FleetComplete.Geocoder.NGeoNames.*" 
+        <file src="..\FleetComplete.Geocoder.CanadaGeoNameBase\bin\Release\FleetComplete.Geocoder.CanadaGeoNameBase.*" 
               target="lib\portable-win+net45+wp8+win8+wpa81" />
     </files>
 </package>
