@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FleetComplete.Geocoder.NGeoNames</id>
-        <version>2.0.0</version>
+        <version>2.0.1</version>
         <title>FleetComplete Offline Reverse Geocoder - NGeoNames</title>
         <description>
 PCL Library to get nearest location information from a set of coordinates (lat/long).  Driven by NGeoNames and GeoNames.org data.
@@ -22,6 +22,9 @@ This uses cross platform libraries underneath the hood, so be sure to install in
             <dependency id="GeoCoordinate" version="[1.1.0, 2)" />
         </dependencies>
         <releaseNotes>
+2.0.1
+Small data correction
+
 2.0.0
 Updated to match FleetComplete.Geocoder API changes
 
