@@ -32,8 +32,8 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
             //result.GenericTerm = values[4];
             //result.GenericCategory = values[5];
             //result.ToponymicFeatureId = values[6];
-            result.Latitude = Convert.ToDouble(values[7]);
-            result.Longitude = Convert.ToDouble(values[8]);
+            result.Latitude = Convert.ToDouble(values[7], System.Globalization.CultureInfo.InvariantCulture);
+            result.Longitude = Convert.ToDouble(values[8], System.Globalization.CultureInfo.InvariantCulture);
             //result.Location = values[9];
             result.ProvinceTerritory = values[10];
             //result.RelevanceAtScale = values[11];
@@ -49,8 +49,8 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
             var result = new GeoNameEntry();
 
             result.GeographicalName = values[0];
-            result.Latitude = Convert.ToDouble(values[1]);
-            result.Longitude = Convert.ToDouble(values[2]);
+            result.Latitude = Convert.ToDouble(values[1], System.Globalization.CultureInfo.InvariantCulture);
+            result.Longitude = Convert.ToDouble(values[2], System.Globalization.CultureInfo.InvariantCulture);
             result.ProvinceTerritory = values[3].RemoveFromEnd("\r");
 
             return result;
