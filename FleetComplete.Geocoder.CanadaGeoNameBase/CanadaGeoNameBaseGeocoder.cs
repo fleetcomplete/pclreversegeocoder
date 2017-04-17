@@ -17,44 +17,36 @@ namespace FleetComplete.Geocoder.CanadaGeoNameBase
             await Task.Run(() => this.EnsureLoaded());
             var center = new GeoCoordinate(latitude, longitude);
 
-            var task = new Task<IEnumerable<IGeocoderResult>>(() =>
+            return this.geodata
+                .Select(x =>
                 {
-                    return this.geodata
-                        .Select(x =>
-                        {
-                            var coord = new GeoCoordinate(x.Latitude, x.Longitude);
-                            return new
-                            {
-                                GeoNameEntry = x,
-                                Coordinate = coord,
-                                Distance = center.GetDistanceTo(coord)
-                            };
-                        })
-                        .OrderBy(x => x.Distance)
-                        .Take(take)
-                        .Select(x =>
-                        {
-                            var direction = Direction.CalculateDirection(x.Coordinate, center);
+                    var coord = new GeoCoordinate(x.Latitude, x.Longitude);
+                    return new
+                    {
+                        GeoNameEntry = x,
+                        Coordinate = coord,
+                        Distance = center.GetDistanceTo(coord)
+                    };
+                })
+                .OrderBy(x => x.Distance)
+                .Take(take)
+                .Select(x =>
+                {
+                    var direction = Direction.CalculateDirection(x.Coordinate, center);
 
-                            return new GeocoderResult
-                            {
-                                City = x.GeoNameEntry.GeographicalName,
-                                Country = "Canada",
-                                CountryCode = "CA",
-                                StateProvince = x.GeoNameEntry.ProvinceTerritory,
-                                StateProvinceCode = CodeMapping.Provinces.SafeGet(x.GeoNameEntry.ProvinceTerritory),
-                                Coordinates = new GeoCoordinates(x.Coordinate.Latitude, x.Coordinate.Longitude),
-                                DirectionInDegreesFrom = direction,
-                                DirectionFrom = Direction.GetDirection(direction),
-                                ApproxDistance = Distance.FromMeters(x.Distance)
-                            };
-                        });
-                }
-            );
-
-            Task.Run(() => task.Start());
-
-            return await task;
+                    return new GeocoderResult
+                    {
+                        City = x.GeoNameEntry.GeographicalName,
+                        Country = "Canada",
+                        CountryCode = "CA",
+                        StateProvince = x.GeoNameEntry.ProvinceTerritory,
+                        StateProvinceCode = CodeMapping.Provinces.SafeGet(x.GeoNameEntry.ProvinceTerritory),
+                        Coordinates = new GeoCoordinates(x.Coordinate.Latitude, x.Coordinate.Longitude),
+                        DirectionInDegreesFrom = direction,
+                        DirectionFrom = Direction.GetDirection(direction),
+                        ApproxDistance = Distance.FromMeters(x.Distance)
+                    };
+                });
         }
 
         readonly object syncLock = new object();
